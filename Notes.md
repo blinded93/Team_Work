@@ -15,3 +15,6 @@ My App is for Coaches to create Assignments(lists) for players
  - Power Forward ( Down in Post or low blocks, scores close to basket, shoot mid range shots jump shots, three pointers, )
  - Small Forward ( quick and strong inside, get to the line, draw fouls by attempting post-up plays, layups, slam dunks, foul shooting, drive to basket, long range shooter, good passing skills)
  - Center ( plays near baseline, close to basket, tallest players, scores down low or in the paint, good perimeter shooters, rebounders, contesting shots, setting screens on plays )
+
+
+- Need to add "Mark task complete" function or method
