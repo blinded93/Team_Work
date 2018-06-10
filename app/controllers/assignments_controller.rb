@@ -1,9 +1,9 @@
 class AssignmentsController < ApplicationController
-  before_action :set_todo_list, only: [:show, :edit, :update, :destroy]
+  before_action :set_assignment, only: [:show, :edit, :update, :destroy]
 
   #GET/ASSIGNMENTS
   def index
-    @assignments = Assignments.all
+    @assignments = Assignment.all
   end
 
   def show
@@ -47,7 +47,7 @@ class AssignmentsController < ApplicationController
    end #destroy
 
    private
-#STRONG PARAMS 
+#STRONG PARAMS
    def set_assignment
      @assignment = Assignment.find(params[:id])
    end
