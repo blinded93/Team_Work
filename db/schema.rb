@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_10_175358) do
+ActiveRecord::Schema.define(version: 2018_06_10_190753) do
 
   create_table "assignments", force: :cascade do |t|
     t.string "title"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 2018_06_10_175358) do
     t.integer "assignment_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "completed_at"
     t.index ["assignment_id"], name: "index_tasks_on_assignment_id"
   end
 

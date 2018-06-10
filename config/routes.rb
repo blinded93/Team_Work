@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
+
  resources :assignments do
-   resources :tasks
- end 
+   resources :tasks do
+     member do
+       patch :complete
+     end
+   end
+ end
 
 
   root "assignments#index"
