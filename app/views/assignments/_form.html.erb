@@ -1,15 +1,17 @@
-<%= form_for(@assignment) do |f| %>
-  <% if @assignment.errors.any? %>
-      <h2><%= pluralize(@assignment.errors.count, "error") %> prohibited this todo_list from being saved:</h2>
-      <ul>
+<div class="hero-unit--module">
+ <div class="hero-unit--module-inner">
+   <%= form_for(@assignment) do |f| %>
+   <% if @assignment.errors.any? %>
+  <h2><%= pluralize(@assignment.errors.count, "error") %> prohibited this todo_list from being saved:</h2>
+    <ul>
       <% @assignment.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+      <li><%= message %></li>
       <% end %>
       </ul>
   <% end %>
 <br><br>
-  
     <%= f.text_field :title %>
-    <%= f.submit %>
-
-<% end %>
+    <%= f.submit class: "Button Button--primary" %>
+    <% end %>
+  </div>
+</div>
