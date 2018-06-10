@@ -1,21 +1,17 @@
 <% if task.completed? %>
-		<div class="complete">
 			<%= link_to complete_assignment_task_path(@assignment, task.id), method: :patch do %>
 			<% end %>
-		</div>
-		<div class="task">
 		  <p><strike><%= task.description %></strike></p>
-		</div>
+
 			<%= link_to assignment_task_path(@assignemnt, task.id), method: :delete, data: { confirm: "Are you sure?" } do %>
 			<% end %>
 	<% else %>
-		<div class="complete">
+
 			<%= link_to complete_assignment_task_path(@assignment, task.id), method: :patch do %>
 			<% end %>
-		</div>
-		<div class="task">
+
 			<p><%= task.description %></p>
-		</div>
+		
 			<%= link_to assignment_task_path(@assignment, task.id), method: :delete, data: { confirm: "Are you sure?" } do %>
 			<% end %>
 	<% end %>
