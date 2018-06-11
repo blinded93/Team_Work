@@ -1,9 +1,9 @@
-<p id="notice"><%= notice %></p>
+<p><%= notice %></p>
 <u><h2><%= @assignment.title %></h2></u>
 
-<div id="tasks_wrapper">
+<div class="tasks_wrapper">
   <%= render @assignment.tasks %>
-<div id="form">
+<div class="form">
 		<%= render "tasks/form" %>
 	</div>
 </div>

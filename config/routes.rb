@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :users
  resources :assignments do
    resources :tasks do
      member do

@@ -1,6 +1,8 @@
 <h1>Player Position Assignments</h1>
   <% @assignments.each do |assignment| %>
+  <% if assignment.user == current_user %>
   <h3><%= link_to assignment.title, assignment %></h3>
+  <% end %>
   <% end %>
   <br><br>
 

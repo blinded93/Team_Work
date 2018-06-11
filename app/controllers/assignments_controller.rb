@@ -1,6 +1,6 @@
 class AssignmentsController < ApplicationController
   before_action :set_assignment, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!, expect: [:index, :show]
   #GET/ASSIGNMENTS
   def index
     @assignments = Assignment.all
@@ -10,7 +10,7 @@ class AssignmentsController < ApplicationController
   end
 
   def new
-    @assignment = Assignment.new
+    @assignment = current_user.assignments.build
   end
 
   def edit
@@ -19,7 +19,7 @@ class AssignmentsController < ApplicationController
   #POST
 
   def create
-    @assignment = Assignment.new(assignment_params)
+    @assignment = current_user.assignments.build(assignment_params)
      if @assignment.save
 
        redirect_to @assignment, notice: "Assignment was created successfully!"
