@@ -1,16 +1,17 @@
 <p id="notice"><%= notice %></p>
-
-<h2 class="title"><%= @assignment.title %></h2>
+<u><h2><%= @assignment.title %></h2></u>
 
 <div id="tasks_wrapper">
-	<%= render @assignment.tasks %>
-	<div id="form">
+  <%= render @assignment.tasks %>
+<div id="form">
 		<%= render "tasks/form" %>
 	</div>
 </div>
 
-<div class="ButtonGroup">
-  <button class="Button Button--no"><%= link_to 'Delete', assignment_task_path(@assignment), method: :delete, data: { confirm: "Are you sure?" } %></button>
-  <button class="Button Button--maybe"><%= link_to 'Back', assignments_path(@assignment) %></button>
-  <button class="Button Button--yes"><%= link_to 'Edit', edit_assignment_path(@assignment) %></button>
+<div class="links">
+<%= link_to 'Delete Assignment', assignment_task_path(@assignment), method: :delete, data: { confirm: "Are you sure?" } %>
+<br>
+<%= link_to 'Back', assignments_path(@assignment) %>
+<br>
+<%= link_to 'Edit', edit_assignment_path(@assignment) %>
 </div>
