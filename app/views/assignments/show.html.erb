@@ -9,10 +9,8 @@
 	</div>
 </div>
 
-<div class="links">
-	<%= link_to 'Edit', edit_assignment_path(@assignment) %> |
-	<%= link_to 'Delete', assignment_task_path(@assignment), method: :delete, data: { confirm: "Are you sure?" }
- %> |
-  <%= link_to 'Back', assignments_path(@assignment) %>
-
+<div class="ButtonGroup">
+  <button class="Button Button--no"><%= link_to 'Delete', assignment_task_path(@assignment), method: :delete, data: { confirm: "Are you sure?" } %></button>
+  <button class="Button Button--maybe"><%= link_to 'Back', assignments_path(@assignment) %></button>
+  <button class="Button Button--yes"><%= link_to 'Edit', edit_assignment_path(@assignment) %></button>
 </div>

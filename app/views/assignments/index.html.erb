@@ -1,9 +1,13 @@
-<% @assignments.each do |assignment| %>
-  <div class="index_row clearfix">
-    <h2 class="title"><%= link_to assignment.title, assignment %></h2>
-  </div>
-<% end %>
+<div class="hero-unit--module">
+ <div class="hero-unit--module-inner">
+   <h1 class="hero-unit--module-heading__orange">Player Position Assignments</h1>
+  <% @assignments.each do |assignment| %>
+    <h3 class="title"><%= link_to assignment.title, assignment %></h3>
+   <% end %>
+ </div>
+</div>
 
 <div class="links">
-  <%= link_to "New Assignment", new_assignment_path %>
+  <button class="Button Button--primary"><%= link_to "New Assignment", new_assignment_path %></button>
+</div>
 </div>
