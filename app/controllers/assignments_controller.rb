@@ -41,7 +41,7 @@ class AssignmentsController < ApplicationController
    #DELETE
 
    def destroy
-     @assigment.destroy
+     @assignment.destroy
 
      redirect_to root_path, notice: "Assignment was deleted successfully!"
    end #destroy

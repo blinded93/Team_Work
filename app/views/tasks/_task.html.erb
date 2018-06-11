@@ -1,16 +1,23 @@
-   <% if task.completed? %>
-			<%= link_to complete_assignment_task_path(@assignment, task.id), method: :patch do %>
-			<% end %>
-		  <p><strike><%= task.description %></strike></p>
+<%#= task.description %>
+	<%#= link_to "Delete", assignment_task_path(@assignment, task.id), method: :delete, data: { confirm: "Are you sure?" } %>
 
-			<%= link_to assignment_task_path(@assignemnt, task.id), method: :delete, data: { confirm: "Are you sure?" } do %>
-			<% end %>
+	<%#= link_to "Mark as Complete", complete_assignment_task_path(@assignment, task.id), method: :patch %>
+
+
+		<% if task.completed? %>
+		<div class="complete">
+		<%= link_to "Mark as Complete", complete_assignment_task_path(@assignment, task.id), method: :patch %>
+		<p><strike><%= task.description %></strike></p>
+</div>
+	<div class="trash">
+		<%= link_to "Delete", assignment_task_path(@assignment, task.id), method: :delete, data: { confirm: "Are you sure?" } %>
+	</div>
 	<% else %>
-			<%= link_to complete_assignment_task_path(@assignment, task.id), method: :patch do %>
-			<% end %>
-
-			<p><%= task.description %></p>
-
-			<%= link_to assignment_task_path(@assignment, task.id), method: :delete, data: { confirm: "Are you sure?" } do %>
-			<% end %>
-	<% end %>
+	<div class="complete">
+	<%= link_to "Mark as Complete", complete_assignment_task_path(@assignment, task.id), method: :patch %>
+	<p><%= task.description %></p>
+</div>
+<div class="trash">
+	<%= link_to "Delete", assignment_task_path(@assignment, task.id), method: :delete, data: { confirm: "Are you sure?" } %>
+</div>
+<% end %>

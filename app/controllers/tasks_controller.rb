@@ -9,6 +9,7 @@ class TasksController < ApplicationController
   end#create
 
   def destroy
+    @task = @assignment.tasks.find(params[:id])
     if @task.destroy
       flash[:success] = "Task was deleted successfully!"
     else
@@ -36,4 +37,4 @@ class TasksController < ApplicationController
   def task_params
     params.require(:task).permit(:description)
   end
-end#class 
+end#class

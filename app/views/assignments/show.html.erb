@@ -1,9 +1,18 @@
-<div class="hero-unit--module">
- <div class="hero-unit--module-inner">
-    <p><%= notice %></p>
-     <h2><%= @assignment.title %></h2>
-       <h3>Tasks needed to be done</h3>
-	      <%= render @assignment.tasks %>
-	  	  <%= render "tasks/form" %>
-      </div>
-    </div>
+<p id="notice"><%= notice %></p>
+
+<h2 class="title"><%= @assignment.title %></h2>
+
+<div id="tasks_wrapper">
+	<%= render @assignment.tasks %>
+	<div id="form">
+		<%= render "tasks/form" %>
+	</div>
+</div>
+
+<div class="links">
+	<%= link_to 'Edit', edit_assignment_path(@assignment) %> |
+	<%= link_to 'Delete', assignment_task_path(@assignment), method: :delete, data: { confirm: "Are you sure?" }
+ %> |
+  <%= link_to 'Back', assignments_path(@assignment) %>
+
+</div>
