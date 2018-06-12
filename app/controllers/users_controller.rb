@@ -16,10 +16,13 @@ class UsersController < ApplicationController
    end
  end#class
 
- def show
-   @user = User.find(params[:id])
-   @assignment = Assignment.new
+ #def show
+   #@user = User.find(params[:id])
+  # @assignment = Assignment.new
+# end
 
+ def show_completed
+  # @user = User.find(params[:user_id])
  end
 
   private

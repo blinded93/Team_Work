@@ -5,7 +5,16 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   validates_presence_of :name
   validates_presence_of :email, uniqueness: true
-  
+
   has_many :assignments
   has_many :tasks, through: :assignments
-end
+
+  def completed_assignments
+    self.assignments.select {|assignment| assignment.status == 'complete'}
+  end 
+
+  def pending_assignments
+    self.assignments.select {|assignment| assignment.status == 'pending'}
+  end
+
+end#

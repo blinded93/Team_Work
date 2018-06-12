@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
 
 
   def after_sign_in_path_for(assignment)
-  assignments_path
+    assignments_path
   end
 
 end#class

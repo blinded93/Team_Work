@@ -1,10 +1,11 @@
 <% if task.completed? %>
-  <%= link_to "Mark as Complete", complete_assignment_task_path(@assignment, task.id), method: :patch %>
-	<p><strike><%= task.description %></strike></p>
-  <br><br>
+  <%#= link_to "Mark as Complete", complete_assignment_task_path(@assignment, task.id), method: :patch %>
+  <p><strike><%= task.description %></strike></p>
 	<%= link_to "Delete Task", assignment_task_path(@assignment, task.id), method: :delete, data: { confirm: "Are you sure?" } %>
-	<% else %>
-	<%= link_to "Mark as Complete", complete_assignment_task_path(@assignment, task.id), method: :patch %>
+
+  <% else %>
+	<%= link_to "Mark as Complete 2", complete_assignment_task_path(@assignment, task.id), method: :patch %>
 	<p><%= task.description %></p>
-	<%= link_to "Delete", assignment_task_path(@assignment, task.id), method: :delete, data: { confirm: "Are you sure?" } %>
+  <br><br>
+	<%= link_to "Delete Task 2", assignment_task_path(@assignment, task.id), method: :delete, data: { confirm: "Are you sure?" } %>
 <% end %>

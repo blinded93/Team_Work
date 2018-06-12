@@ -4,14 +4,12 @@ class AssignmentsController < ApplicationController
   #GET/ASSIGNMENTS
   def index
     @assignments = Assignment.all
-    @assignments = Assignment.completed
+    #@assignments = Assignment.completed
   end
 
   def show
+    @assignments = Assignment.all
     @assignment = Assignment.find(params[:id])
-
-    render :nothing and return unless @assignment.completed?
-    #end 
   end
 
   def new
@@ -19,7 +17,6 @@ class AssignmentsController < ApplicationController
   end
 
   #POST
-
   def create
     @assignment = current_user.assignments.build(assignment_params)
      if @assignment.save
@@ -45,7 +42,7 @@ class AssignmentsController < ApplicationController
    def destroy
      @assignment.destroy
 
-     redirect_to root_path, notice: "Assignment was deleted successfully!"
+     redirect_to @assignment, notice: "Assignment was deleted successfully!"
    end #destroy
 
    private
