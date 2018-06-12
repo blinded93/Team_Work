@@ -4,16 +4,18 @@ class AssignmentsController < ApplicationController
   #GET/ASSIGNMENTS
   def index
     @assignments = Assignment.all
+    @assignments = Assignment.completed
   end
 
   def show
+    @assignment = Assignment.find(params[:id])
+
+    render :nothing and return unless @assignment.completed?
+    #end 
   end
 
   def new
     @assignment = current_user.assignments.build
-  end
-
-  def edit
   end
 
   #POST

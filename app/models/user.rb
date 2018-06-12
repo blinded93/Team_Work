@@ -3,6 +3,9 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-
-  has_many :assignments 
+  validates_presence_of :name
+  validates_presence_of :email, uniqueness: true
+  
+  has_many :assignments
+  has_many :tasks, through: :assignments
 end

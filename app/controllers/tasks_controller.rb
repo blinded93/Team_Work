@@ -22,7 +22,7 @@ class TasksController < ApplicationController
     @task.update_attribute(:completed_at, Time.now)
 
       redirect_to @assignment, notice: "Task completed"
-  end#compete
+  end#complete
 
   private
 
