@@ -4,6 +4,11 @@ Rails.application.routes.draw do
 
  #resources :users
 
+#resources :assignments do
+  #member do
+    #patch :complete
+  #end
+#end
  resources :assignments do
    resources :tasks do
      member do

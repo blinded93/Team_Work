@@ -4,16 +4,16 @@ class Assignment < ApplicationRecord
 
   validates_presence_of :title
 
-  scope :completed, -> { where(status: 'completed') }
-  scope :pending, -> { where(status: 'pending') }
+  scope :complete, -> { where(status: 'complete') }
+  #scope :pending, -> { where(status: 'pending') }
 
 
-  def pending?
-    status == 'pending'
-  end
+  #def pending?
+    #status == 'pending'
+  #end
 
-  def completed?
-    status == 'completed'
-  end
+  #def completed?
+  #  status == 'completed'
+#  end
 
 end

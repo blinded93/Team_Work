@@ -19,10 +19,16 @@ class TasksController < ApplicationController
   end #destroy
 
   def complete
-    @task.update_attribute(:completed_at, Time.now)
+    if !@task.completed?
+      @task.update_attribute(:completed_at, Time.now)
 
       redirect_to @assignment, notice: "Task completed"
-  end#complete
+    else
+      
+    @task.update_attribute(:completed_at, nil)
+     redirect_to @assignment, notice: "Task Incomplete"
+  end
+end
 
   private
 
