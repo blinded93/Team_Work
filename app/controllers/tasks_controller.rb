@@ -24,7 +24,7 @@ class TasksController < ApplicationController
 
       redirect_to @assignment, notice: "Task completed"
     else
-      
+
     @task.update_attribute(:completed_at, nil)
      redirect_to @assignment, notice: "Task Incomplete"
   end

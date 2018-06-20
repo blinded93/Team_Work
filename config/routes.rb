@@ -1,21 +1,15 @@
 Rails.application.routes.draw do
 
- devise_for :users, controllers: { sessions: 'users/sessions'}
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
- #resources :users
-
-#resources :assignments do
-  #member do
-    #patch :complete
-  #end
-#end
- resources :assignments do
+  resources :assignments do
    resources :tasks do
      member do
        patch :complete
      end
    end
  end
+
 
 
   root "welcome#index"

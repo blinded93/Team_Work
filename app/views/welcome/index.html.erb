@@ -1,11 +1,9 @@
-<div class="hero-unit--module">
- <div class="hero-unit--module-inner">
-  <h1 class="hero-unit--module-heading"><span class="hero-unit--module-heading__intro hero-unit--module-heading__blue">Team_Work</span><br>The app that helps coaches and their players develop & train even when they aren't together</a></h1>
-    <center>
-     <ul class="hero-unit--feature-list">
+<h1>Team_Work</h1>
+  <center>
+<h3>The app that helps coaches and their players develop & train even when they aren't together</h3>
        <% if signed_in? %>
-       <%= link_to "Team Assignments", assignments_path %> <br />
+       <%= link_to "Assignments", assignments_path %> <br />
        <% else %>
-       <h3> Sign in or Sign-up to start creating Assignments for your players! </h3>
+       <h3> Sign in or Sign-up to start creating Assignments! </h3>
 <% end %>
 </ul>

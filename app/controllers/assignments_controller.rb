@@ -3,9 +3,11 @@ class AssignmentsController < ApplicationController
   before_action :authenticate_user!, expect: [:index, :show]
   #GET/ASSIGNMENTS
   def index
-    @assignments = Assignment.all
-    #@assignments = Assignment.completed
-  end
+  @assignments = Assignment.pending
+  #@assignment = Assignment.new
+  @assignments = Assignment.all
+
+end
 
   def show
     @assignments = Assignment.all
@@ -52,7 +54,7 @@ class AssignmentsController < ApplicationController
    end
 
    def assignment_params
-     params.require(:assignment).permit(:title)
+     params.require(:assignment).permit(:title, :state_event)
    end
 
 end#class

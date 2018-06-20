@@ -1,4 +1,4 @@
-<h1>Player Position Assignments</h1>
+<h1>Assignments</h1>
   <% @assignments.each do |assignment| %>
   <% if assignment.user == current_user %>
   <h3><%= link_to assignment.title, assignment %></h3>
@@ -9,3 +9,8 @@
 <div class="links">
   <%= link_to "Create New Assignment", new_assignment_path %>
 </div>
+
+<%# @assignments.each do |assignment| %>
+<%#= assignment.title %>
+<%#= assignment.status %>
+<%# end %>
