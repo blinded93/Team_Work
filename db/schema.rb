@@ -10,26 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_20_214627) do
+ActiveRecord::Schema.define(version: 2018_06_19_033323) do
 
   create_table "assignments", force: :cascade do |t|
-    t.string "title"
+    t.string "name"
+    t.string "due_date"
+    t.boolean "status", default: false
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "user_id"
-    t.integer "status", default: 0
   end
 
   create_table "tasks", force: :cascade do |t|
-    t.string "description"
+    t.string "name"
+    t.datetime "completed_at"
     t.integer "assignment_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.datetime "completed_at"
-    t.index ["assignment_id"], name: "index_tasks_on_assignment_id"
   end
 
   create_table "users", force: :cascade do |t|
+    t.string "username", default: "", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -42,7 +43,6 @@ ActiveRecord::Schema.define(version: 2018_06_20_214627) do
     t.string "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "assignment_id"
     t.string "provider"
     t.string "uid"
     t.index ["email"], name: "index_users_on_email", unique: true

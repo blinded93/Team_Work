@@ -1,7 +1,8 @@
 class Task < ApplicationRecord
   belongs_to :assignment
-  has_many :users, through: :assignments 
-  validates_presence_of :description
+  #belongs_to :user
+
+  validates_presence_of :name
 
 
   def completed?

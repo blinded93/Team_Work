@@ -8,6 +8,13 @@ class TasksController < ApplicationController
     redirect_to @assignment
   end#create
 
+  #def show
+  #end
+
+  def edit
+    @task = Task.find(params[:id])
+  end
+
   def destroy
     @task = @assignment.tasks.find(params[:id])
     if @task.destroy
@@ -41,6 +48,6 @@ end
   end
 
   def task_params
-    params.require(:task).permit(:description)
+    params.require(:task).permit(:name)
   end
 end#class

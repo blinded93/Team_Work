@@ -1,33 +1,16 @@
 class Assignment < ApplicationRecord
-
-  enum status: { pending: 0, completed: 1 } do
-    event :complete do
-      transition :pending => :completed
-    end
-  end
-
-  attr_accessor :state_event
-  after_save :trigger_state, if: :state_event
-
-  private
-
-  def trigger_state
-    send(state_event) if send(:"can_#{state_event}?")
-  end
-
-
-  belongs_to :user
   has_many :tasks
+  belongs_to :user
 
-  validates_presence_of :title
+  validates_presence_of :name
+  validates_presence_of :due_date
 
 
-  #def pending?
-  #  status == '0'
-#  end
+  def self.incomplete
+    where(status: false).order('id DESC')
+  end
 
-#  def complete?
-  #  status == '1'
-#  end
-
+  def self.complete
+    where(status: true).order('id DESC')
+  end
 end

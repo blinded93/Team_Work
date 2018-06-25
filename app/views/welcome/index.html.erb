@@ -1,9 +1,7 @@
-<h1>Team_Work</h1>
-  <center>
-<h3>The app that helps coaches and their players develop & train even when they aren't together</h3>
+
        <% if signed_in? %>
+       <h4> Click here to see current assignments or to create new ones <h4>
        <%= link_to "Assignments", assignments_path %> <br />
        <% else %>
-       <h3> Sign in or Sign-up to start creating Assignments! </h3>
+       <h3> Sign in or Sign up to start making assignments <h3>
 <% end %>
-</ul>

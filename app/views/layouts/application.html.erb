@@ -12,15 +12,17 @@
   </head>
 
   <body>
-    <% if user_signed_in? %>
-    <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
-    <% else %>
+    <h1>Team_Work</h1>
+      <center>
+    <h3>The app that helps coaches and their players develop & train even when they aren't together</h3>
+      <% if user_signed_in? %>
+      <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+      <% else %>
     <h4> Sign-in or Sign-up to start making Assignments </h4>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <% end %>
 	<%= yield %>
-</div>
-
+</center>
   </body>
 </html>
