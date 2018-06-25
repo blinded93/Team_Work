@@ -1,8 +1,13 @@
 <div class="links">
-  <%= link_to "Create New Assignment", new_assignment_path %> 
+  <%= link_to "Create New Assignment", new_assignment_path %>
 </div>
 
-<h2>Incomplete Assignments</h2>
+<% if user_signed_in? %>
+  <h2>
+    <ul>Welcome, <%= current_user.email if !current_user.nil? %></ul>
+  </h2>
+  <% end %>
+<h3>Incomplete Assignments</h3>
   <%= form_tag(completed_assignment_path, method: :put)  do %>
   <% for assignment in @incomplete_assignment %>
     <ul>
@@ -13,7 +18,7 @@
   <%= submit_tag 'Mark as Completed' %>
 <% end %>
 
-<h2>Completed Assignments</h2>
+<h3>Completed Assignments</h3>
   <% for assignment in @complete_assignment %>
     <ul>
      <%= link_to assignment.name, assignment_path(assignment) %>

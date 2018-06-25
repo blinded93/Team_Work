@@ -1,5 +1,5 @@
 # Team_Work
-### An app created using Ruby on Rails for Coaches and Players to train and develop even when they aren't together.
+### An app created using Ruby on Rails for Coaches to be better organized during practices and training. 
 
 Team_Work provides sports teams with a CRUD interface for assignments and tasks.
 
