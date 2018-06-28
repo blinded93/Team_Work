@@ -2,14 +2,17 @@ class TasksController < ApplicationController
   before_action :set_assignment
   before_action :set_task, except: [:create]
 
+  def new
+  end
+  
   def create
     @task = @assignment.tasks.create(task_params)
 
     redirect_to @assignment
   end#create
 
-  #def show
-  #end
+  def index
+  end
 
   def edit
     @task = Task.find(params[:id])

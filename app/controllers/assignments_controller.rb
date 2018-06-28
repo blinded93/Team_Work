@@ -1,22 +1,21 @@
 class AssignmentsController < ApplicationController
   before_action :set_assignment, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
-  #helper_method :count
   #GET/ASSIGNMENTS
   def index
-    @assignments = Assignment.all
+    @assignment = Assignment.new
     @incomplete_assignment = Assignment.incomplete
     @complete_assignment = Assignment.complete
   end
 
   def show
-    @task = Task.new
     @assignment = Assignment.find(params[:id])
+    @task = Task.new
   end
 
   def new
     @assignment = Assignment.new
-    @task = Task.new
+    @assignment.tasks.build
   end
 
   #POST
@@ -31,7 +30,7 @@ class AssignmentsController < ApplicationController
    end #create
 
 #PATCH
-   def update
+   def edit
      @assignment = Assignment.find(params[:id])
      @assignment.save
 
