@@ -1,4 +1,5 @@
-#README file contains the following sections: *
+ # README file contains the following sections: *
+ 
  Application description
  Installation guide (e.g. fork and clone repo, migrate db, bundle install, etc)
  Contributors guide (e.g. file an issue, file an issue with a pull request, etc)
