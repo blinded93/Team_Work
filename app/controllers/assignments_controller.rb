@@ -1,6 +1,7 @@
 class AssignmentsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :set_assignment, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!
+
   #GET/ASSIGNMENTS
   def index
     @assignment = Assignment.new
@@ -8,14 +9,8 @@ class AssignmentsController < ApplicationController
     @complete_assignment = Assignment.complete
   end
 
-  def show
-    @assignment = Assignment.find(params[:id])
-    @task = Task.new
-  end
-
   def new
-    @assignment = Assignment.new
-    @assignment.tasks.build
+    @assignment = current_user.assignments.build
   end
 
   #POST
@@ -29,6 +24,11 @@ class AssignmentsController < ApplicationController
      end
    end #create
 
+   def show
+     @assignments = current_user.assignments
+     @task = Task.new
+   end
+
 #PATCH
    def edit
      @assignment = Assignment.find(params[:id])
@@ -39,15 +39,22 @@ class AssignmentsController < ApplicationController
 
    #DELETE
    def destroy
-     @assignment.destroy
+    # @assignment = Assignment.find_by_id(params[:id])
+     #if @assignment.user_id == current_user
+       @assignment.destroy
 
      redirect_to @assignment, notice: "Assignment was deleted successfully!"
    end #destroy
 
   def completed
+     if @assignment != current_user
+
+       redirect_to root_path, notice: "Not your assignments"
+    else
     Assignment.where(id: params[:assignment_id]).update_all(status: true)
 
     redirect_to assignments_path
+    end
   end
 
    private
@@ -57,7 +64,7 @@ class AssignmentsController < ApplicationController
    end
 
    def assignment_params
-     params.require(:assignment).permit(:name,:due_date, task_attributes: [:name])
+     params.require(:assignment).permit(:name,:due_date, :user_id, task_attributes: [:name])
    end
 
 end#class

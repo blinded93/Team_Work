@@ -14,12 +14,17 @@
   <body>
     <h1>Team_Work</h1>
       <center>
-    <h3>The app that helps coaches develop and train their players better</h3>
+    <h3>The app that helps coaches stay better organized during practices and training</h3>
       <% if user_signed_in? %>
+      <h2><ul>Welcome, <%= current_user.email if !current_user.nil? %></ul></h2>
       <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
       <% else %>
     <h4> Sign-in or Sign-up to start making Assignments </h4>
+    <% end %>
+
+    <% if notice %>
     <p class="notice"><%= notice %></p>
+    <% elsif %>
     <p class="alert"><%= alert %></p>
     <% end %>
 	<%= yield %>

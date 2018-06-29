@@ -1,10 +1,11 @@
 class TasksController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :set_assignment
   before_action :set_task, except: [:create]
-
+  
   def new
   end
-  
+
   def create
     @task = @assignment.tasks.create(task_params)
 

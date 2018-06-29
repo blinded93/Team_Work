@@ -2,10 +2,11 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   put 'completed_assignment', to: 'assignments#completed', as: :completed_assignment
+  #get '*path' => redirect('/')
 
   resources :users do
     resources :assignments
-  end 
+  end
 
   resources :assignments do
    resources :tasks do
