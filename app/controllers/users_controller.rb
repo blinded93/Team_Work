@@ -6,4 +6,4 @@ class UsersController < ApplicationController
     @assignment = Assignment.new
   end
 
-end 
+end

@@ -1,5 +1,4 @@
 <p id="notice"><%= notice %></p>
-<% if @assignment.user == current_user %>
 <h1><%= @assignment.name %></h1>
 <h3>Due Date: <%= @assignment.due_date %></h3>
 
@@ -9,13 +8,13 @@
 		<%= render "tasks/form" %>
 	</div>
 </div>
-
-<div class="links">
-  <%= link_to 'Delete Assignment', assignment_path(@assignment), method: :delete, data: { confirm: "Are you sure?" } %>
+<% if @assignment.user == current_user %>
+ <div class="links">
+   <%= link_to 'Delete Assignment', assignment_path(@assignment), method: :delete, data: { confirm: "Are you sure?" } %>
   <br>
-  <%= link_to 'Edit', edit_assignment_path(@assignment) %>
+   <%= link_to 'Edit', edit_assignment_path(@assignment) %>
   <br>
-  <% end %>
-  <%= link_to 'Back to Assignments', assignments_path(@assignment) %>
-  <br>
+   <% end %>
+   <%= link_to 'Back to Assignments', assignments_path(@assignment) %>
+   <br>
 </div>

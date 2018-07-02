@@ -4,9 +4,9 @@ Rails.application.routes.draw do
   put 'completed_assignment', to: 'assignments#completed', as: :completed_assignment
   #get '*path' => redirect('/')
 
-  resources :users do
-    resources :assignments
-  end
+  #resources :users do
+    #resources :assignments
+#  end
 
   resources :assignments do
    resources :tasks do

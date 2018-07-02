@@ -10,6 +10,14 @@ class User < ApplicationRecord
   has_many :assignments
   has_many :tasks, through: :assignments
 
+  #def complete_assignments
+  #  self.assignments.select {|assignment| assignment.status == 'complete'}
+#  end
+
+#  def incomplete_assignments
+  #  self.assignments.select {|assignment| assignment.status == 'incomplete'}
+#  end
+
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
     user.email = auth.info.email
