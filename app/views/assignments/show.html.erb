@@ -2,13 +2,14 @@
 <h1><%= @assignment.name %></h1>
 <h3>Due Date: <%= @assignment.due_date %></h3>
 
+<% if @assignment.user == current_user %>
 <div class="tasks_wrapper">
   <%= render @assignment.tasks %>
 <div class="form">
 		<%= render "tasks/form" %>
 	</div>
 </div>
-<% if @assignment.user == current_user %>
+
  <div class="links">
    <%= link_to 'Delete Assignment', assignment_path(@assignment), method: :delete, data: { confirm: "Are you sure?" } %>
   <br>

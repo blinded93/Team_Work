@@ -15,10 +15,10 @@ class AssignmentsController < ApplicationController
 
   #POST
   def create
-    @assignment = current_user.assignments.build(assignment_params)
-     if @assignment.save
+    assignment = current_user.assignments.build(assignment_params)
+     if assignment.save
 
-       redirect_to @assignment, notice: "Assignment was created successfully!"
+       redirect_to assignments_path, notice: "Assignment was created successfully!"
      else
        render :new
      end
