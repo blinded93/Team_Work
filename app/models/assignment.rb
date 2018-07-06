@@ -1,6 +1,9 @@
 class Assignment < ApplicationRecord
   has_many :tasks
-  belongs_to :user
+  has_many :user_assignments
+  has_many :users, through: :user_assignments
+
+
 
   validates_presence_of :name
   validates_presence_of :due_date

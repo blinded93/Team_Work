@@ -7,11 +7,11 @@ class AssignmentsController < ApplicationController
     @assignment = Assignment.new
     @incomplete_assignment = Assignment.incomplete
     @complete_assignment = Assignment.complete
-  end
+  end#index
 
   def new
     @assignment = current_user.assignments.build
-  end
+  end#new
 
   #POST
   def create
@@ -27,35 +27,38 @@ class AssignmentsController < ApplicationController
    def show
      @assignments = current_user.assignments
      @task = Task.new
-   end
+   end#show
 
 #PATCH
    def edit
-     @assignment = Assignment.find(params[:id])
-     @assignment.save
+     #@assignment = Assignment.find(params[:id])
+   end #edit
 
-    redirect_to @assignment, notice: "Assignment updated successfully!"
-   end #update
+  def update
+  #  @assignment = Assignment.find(params[:id])
+    @assignment.update(assignment_params)
 
-   #DELETE
-   def destroy
-    # @assignment = Assignment.find_by_id(params[:id])
-     #if @assignment.user_id == current_user
-       @assignment.destroy
+  redirect_to @assignment, notice: "Assignment updated successfully!"
+  end#update
 
-     redirect_to @assignment, notice: "Assignment was deleted successfully!"
-   end #destroy
+
+ #DELETE
+  def destroy
+    @assignment.destroy
+
+    redirect_to @assignment, notice: "Assignment was deleted successfully!"
+  end #destroy
 
   def completed
      if @assignment != current_user
 
        redirect_to root_path, notice: "Not your assignments"
     else
-    Assignment.where(id: params[:assignment_id]).update_all(status: true)
+     Assignment.where(id: params[:assignment_id]).update_all(status: true)
 
-    redirect_to assignments_path
+     redirect_to assignments_path
     end
-  end
+  end#completed
 
    private
 #STRONG PARAMS

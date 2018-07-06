@@ -1,8 +1,8 @@
 class TasksController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_assignment
-  before_action :set_task, except: [:create]
-  
+  before_action :set_task, except: [:create, :index]
+
   def new
   end
 
@@ -13,11 +13,7 @@ class TasksController < ApplicationController
   end#create
 
   def index
-  end
-
-  def edit
-    @task = Task.find(params[:id])
-  end
+  end#index
 
   def destroy
     @task = @assignment.tasks.find(params[:id])
@@ -38,8 +34,8 @@ class TasksController < ApplicationController
 
     @task.update_attribute(:completed_at, nil)
      redirect_to @assignment, notice: "Task Incomplete"
+    end
   end
-end
 
   private
 

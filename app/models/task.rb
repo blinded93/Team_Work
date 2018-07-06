@@ -1,7 +1,6 @@
 class Task < ApplicationRecord
   belongs_to :assignment
-  #belongs_to :user
-
+  
   validates_presence_of :name
 
 
