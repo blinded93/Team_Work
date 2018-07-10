@@ -3,17 +3,13 @@ class TasksController < ApplicationController
   before_action :set_assignment
   before_action :set_task, except: [:create, :index]
 
-  def new
-  end
-
   def create
-    @task = @assignment.tasks.create(task_params)
+    @assignment = Assignment.find(params[:assignment_id])
+    @task = @assignment.tasks.build(task_params)
+    @task.save
 
     redirect_to @assignment
-  end#create
-
-  def index
-  end#index
+    end#create
 
   def destroy
     @task = @assignment.tasks.find(params[:id])
@@ -48,6 +44,6 @@ class TasksController < ApplicationController
   end
 
   def task_params
-    params.require(:task).permit(:name)
+    params.require(:task).permit(:description)
   end
 end#class

@@ -2,7 +2,8 @@
 <h1><%= @assignment.name %></h1>
 <h3>Due Date: <%= @assignment.due_date %></h3>
 
-<% if @assignment.user == current_user %>
+
+<%# if @assignment.users == current_user %>
 <div class="tasks_wrapper">
   <%= render @assignment.tasks %>
  <div class="form">
@@ -15,7 +16,7 @@
   <br>
    <%= link_to 'Edit Assignment', edit_assignment_path(@assignment) %>
   <br>
-   <% end %>
+   <%# end %>
    <%= link_to 'Back to Assignments', assignments_path(@assignment) %>
    <br>
 </div>

@@ -5,8 +5,8 @@ class User < ApplicationRecord
 
   validates_presence_of :email, uniqueness: true
 
-  has_many :user_assignments
-  has_many :assignments, through: :user_assignments 
+  has_many :tasks
+  has_many :assignments, through: :tasks
 
 
   def self.from_omniauth(auth)
