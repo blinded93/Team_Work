@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   put 'completed_assignment', to: 'assignments#completed', as: :completed_assignment
 
 
-  resources :users
+  resources :users, only: [:show] do
+    resources :assignments
+  end
 
   resources :assignments do
     resources :tasks do
