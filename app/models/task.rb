@@ -1,8 +1,8 @@
 class Task < ApplicationRecord
   belongs_to :assignment
-  belongs_to :user 
+  belongs_to :user
 
-  validates_presence_of :description
+  validates_presence_of :name
 
   def completed?
     !completed_at.blank?

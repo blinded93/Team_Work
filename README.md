@@ -1,11 +1,11 @@
 # Team_Work
-### An app created using Ruby on Rails for Coaches to be better organized during practices and training. 
 
-Team_Work provides sports teams with a CRUD interface for assignments and tasks.
+ An app created using Ruby on Rails for Coaches to be better organized during practices and training. Team_Work provides teams or groups with a CRUD interface for assignments and tasks.
 
 ## Installation/Development
 
-Use Ruby 2.5.0 and Rails 5.2.0.
+Built using Ruby 2.5.0 and Rails 5.2.0. (Use RVM if needed to install this version)
+
 To use Team_Work:
 fork and clone this repo
 run in the command line:

@@ -1,8 +1,6 @@
 <p id="notice"><%= notice %></p>
 <h1><%= @assignment.name %></h1>
 <h3>Due Date: <%= @assignment.due_date %></h3>
-
-
 <%# if @assignment.users == current_user %>
 <div class="tasks_wrapper">
   <%= render @assignment.tasks %>

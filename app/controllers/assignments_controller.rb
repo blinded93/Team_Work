@@ -50,14 +50,14 @@ class AssignmentsController < ApplicationController
   end #destroy
 
   def completed
-    if  @assignment != current_user
+  #  if  @assignment.user != current_user
 
-     redirect_to root_path, notice: "Not your assignments"
-    else
+    # redirect_to root_path, notice: "Not your assignments"
+  #  else
      Assignment.where(id: params[:assignment_id]).update_all(status: true)
 
      redirect_to assignments_path
-    end
+  #  end
   end#completed
 
    private
@@ -67,7 +67,7 @@ class AssignmentsController < ApplicationController
    end
 
    def assignment_params
-     params.require(:assignment).permit(:name,:due_date, task_attributes: [:description])
+     params.require(:assignment).permit(:name,:due_date, task_attributes: [:name])
    end
 
 end#class
