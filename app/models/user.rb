@@ -5,9 +5,12 @@ class User < ApplicationRecord
 
   validates_presence_of :email, uniqueness: true
 
-  has_many :tasks
-  has_many :assignments, through: :tasks
+  has_many :assignments
+  has_many :tasks, through: :assignments
 
+  def assignments_completed
+    User.joins(:assignment).where(status: true).order('id DESC')
+  end
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
@@ -15,5 +18,4 @@ class User < ApplicationRecord
     user.password = Devise.friendly_token[0,20]
     end
   end
-
-end#
+ end

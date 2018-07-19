@@ -10,4 +10,9 @@ class UsersController < ApplicationController
    end
   end
 
+  def show_completed
+    @users = User.all.order('id DESC')
+    #@user = User.find(params[:id])
+  end
+
 end

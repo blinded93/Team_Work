@@ -1,0 +1,14 @@
+<h3> Status of who has done what</h3>
+  <br>
+   <% for user in @users %>
+  <%= user.email %> has completed <%= user.assignments.complete.size %> assignments. <br>
+<% end %>
+
+<% if user.assignments.complete.size > 5 %>
+<h1> **Featured User** </h1>
+  <h2><%= user.email %> has completed the most assignments!</h2>
+    <% else %>
+     <p> Not enough completed Assignments to be featured!</p>
+  <% end %>
+
+  <%= link_to 'Back to your asssignments', user_assignments_path([@user, @assignment]) %>

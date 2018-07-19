@@ -1,6 +1,1 @@
-<h1> Here are your assignments, <%= current_user.email %></h1>
-<% current_user.assignments.each do |assignment| %>
-  <ul>
-    <li><h4><%= link_to assignment.name %></h4></li>
-  </ul>
-<%end%>
+<%= render partial: 'incomplete', locals: {user: @user}%>

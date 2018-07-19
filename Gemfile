@@ -38,6 +38,8 @@ gem 'omniauth-facebook', '~> 4.0'
 gem 'stateful_enum'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
+gem 'counter_culture', :git => 'https://github.com/magnusvk/counter_culture.git'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

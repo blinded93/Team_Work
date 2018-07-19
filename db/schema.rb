@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_12_145121) do
+ActiveRecord::Schema.define(version: 2018_07_19_212508) do
 
   create_table "assignments", force: :cascade do |t|
     t.string "name"
@@ -18,15 +18,16 @@ ActiveRecord::Schema.define(version: 2018_07_12_145121) do
     t.boolean "status", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
   end
 
   create_table "tasks", force: :cascade do |t|
     t.string "name"
     t.datetime "completed_at"
-    t.integer "assignment_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
+    t.integer "assignment_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -44,6 +45,8 @@ ActiveRecord::Schema.define(version: 2018_07_12_145121) do
     t.datetime "updated_at", null: false
     t.string "provider"
     t.string "uid"
+    t.integer "assignments_count", default: 0, null: false
+    t.integer "assignments_completed_count", default: 0, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

@@ -4,19 +4,19 @@ class AssignmentsController < ApplicationController
 
   #GET/ASSIGNMENTS
   def index
-    @assignment = Assignment.new
+    @assignments = current_user.assignments
     @incomplete_assignment = Assignment.incomplete
     @complete_assignment = Assignment.complete
   end#index
 
   def new
-    @assignment = Assignment.new
+    @assignment = current_user.assignments.build
     @assignment.tasks.build
   end#new
 
   #POST
   def create
-    @assignment = Assignment.new(assignment_params)
+    @assignment = current_user.assignments.build(assignment_params)
      if @assignment.save
 
        redirect_to assignments_path, notice: "Assignment was created successfully!"
@@ -29,7 +29,6 @@ class AssignmentsController < ApplicationController
       @assignments = current_user.assignments
       @task = Task.new
     end#show
-
 
 #PATCH
    def edit
@@ -50,14 +49,9 @@ class AssignmentsController < ApplicationController
   end #destroy
 
   def completed
-  #  if  @assignment.user != current_user
-
-    # redirect_to root_path, notice: "Not your assignments"
-  #  else
      Assignment.where(id: params[:assignment_id]).update_all(status: true)
 
      redirect_to assignments_path
-  #  end
   end#completed
 
    private
@@ -67,7 +61,7 @@ class AssignmentsController < ApplicationController
    end
 
    def assignment_params
-     params.require(:assignment).permit(:name,:due_date, task_attributes: [:name])
+     params.require(:assignment).permit(:name, :due_date, task_attributes: [:name])
    end
 
 end#class
