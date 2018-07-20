@@ -9,7 +9,7 @@
     <ul>
       <% if assignment.user == current_user %>
       <%= check_box_tag 'assignment_id[]', assignment.id %>
-      <%= link_to assignment.name, assignment_path(assignment) %>
+      <%= link_to assignment.name, user_assignment_path([current_user.id, assignment.id]) %>
     </ul>
    <% end %>
    <% if assignment.user == current_user %>

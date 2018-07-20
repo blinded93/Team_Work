@@ -28,7 +28,7 @@ class AssignmentsController < ApplicationController
 
    def show
       #@user = current_user.assignments
-      @assignments = current_user.assignments
+      @assignments = current_user.assignments.find(params[:id])
       @task = Task.new
     end#show
 
