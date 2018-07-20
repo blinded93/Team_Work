@@ -27,8 +27,8 @@ class AssignmentsController < ApplicationController
    end #create
 
    def show
-      @user = current_user.assignments
-      @assignment = current_user.assignments
+      #@user = current_user.assignments
+      @assignments = current_user.assignments
       @task = Task.new
     end#show
 
