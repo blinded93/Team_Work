@@ -4,7 +4,8 @@ class AssignmentsController < ApplicationController
 
   #GET/ASSIGNMENTS
   def index
-    @assignments = current_user.assignments
+    #@user = User.find params[:user_id]
+    @assignments = current_user.id
     @incomplete_assignment = Assignment.incomplete
     @complete_assignment = Assignment.complete
   end#index
@@ -26,7 +27,8 @@ class AssignmentsController < ApplicationController
    end #create
 
    def show
-      @assignments = current_user.assignments
+      @user = current_user.assignments
+      @assignment = current_user.assignments
       @task = Task.new
     end#show
 
@@ -51,7 +53,7 @@ class AssignmentsController < ApplicationController
   def completed
      Assignment.where(id: params[:assignment_id]).update_all(status: true)
 
-     redirect_to assignments_path
+     redirect_to user_assignments_path(current_user.id)
   end#completed
 
    private

@@ -3,9 +3,9 @@ Rails.application.routes.draw do
 
   put 'completed_assignment', to: 'assignments#completed', as: :completed_assignment
   get 'completed_most', to: 'users#show_completed', as: :completed_most
-  #get 'users/:user_id/assignments', to: 'assignments#index', as: 'assignments'
+  get 'users/:user_id/assignments', to: 'assignments#index', as: :assignments
 
-  resources :users do
+  resources :users, only: [:index, :show] do
     resources :assignments
   end
 

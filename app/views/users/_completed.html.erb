@@ -11,4 +11,4 @@
      <p> Not enough completed Assignments to be featured!</p>
   <% end %>
 
-  <%= link_to 'Back to your asssignments', user_assignments_path([@user, @assignment]) %>
+  <%= link_to 'Back to your asssignments', user_assignments_path([current_user.id, @assignment]) %>
