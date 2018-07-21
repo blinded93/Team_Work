@@ -4,7 +4,6 @@ class AssignmentsController < ApplicationController
 
   #GET/ASSIGNMENTS
   def index
-    # binding.pry
     user = User.find params[:user_id]
     @incomplete_assignments = user.assignments.incomplete
     @complete_assignments = user.assignments.complete
@@ -49,7 +48,6 @@ class AssignmentsController < ApplicationController
   end #destroy
 
   def completed
-    binding.pry
      Assignment.where(id: params[:assignment_ids]).update_all(status: true)
 
      redirect_to user_assignments_path(current_user.id)
