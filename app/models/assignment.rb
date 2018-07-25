@@ -11,6 +11,10 @@ class Assignment < ApplicationRecord
     where(status: true).order('id DESC')
   end
 
+  def complete?
+    status
+  end
+
   def self.incomplete
     where(status: false).order('id DESC')
   end

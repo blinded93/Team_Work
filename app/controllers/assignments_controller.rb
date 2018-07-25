@@ -48,7 +48,10 @@ class AssignmentsController < ApplicationController
   end #destroy
 
   def completed
+    binding.pry
      Assignment.where(id: params[:assignment_ids]).update_all(status: true)
+     current_user.assignments_completed_count +=(params[:assignment_ids].count)
+     current_user.save
 
      redirect_to user_assignments_path(current_user.id)
   end#completed

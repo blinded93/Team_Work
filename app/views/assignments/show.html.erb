@@ -4,7 +4,7 @@
 <h4>Due Date: <%= @assignment.due_date %></h4>
 
 <div class="tasks_wrapper">
-  <%= render @assignment.tasks, locals:{assignment:@assignment} %>
+  <%= render @assignment.tasks %>
 </div>
 <% if @assignment.user == current_user %>
  <div class="form">
